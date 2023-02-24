@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: rgb(94, 140, 233);
+    text-align: center;
+    font-style: italic;
+    padding: 20px 50px;
+}
+
+

@@ -1,4 +1,24 @@
 {
+  "name": "weekend-server-calculator",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
+  "version": "1.0.0",
+  "main": "PersonalChecklist.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggSushi/weekend-server-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggSushi/weekend-server-calculator/issues"
+  },
+  "homepage": "https://github.com/ggSushi/weekend-server-calculator#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
