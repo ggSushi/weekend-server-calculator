@@ -13,15 +13,18 @@
     </header>
     <div>
        <p>
-            <input type="number" id="first-number" placeholder="first number" />
+            <input type="number" id="first-number" placeholder="first number" required/>
             <br>
-            <button onClick="addNumbers()" id="addition"> + </button>
-            <button onClick="subNumbers()" id="subtraction"> - </button>
-            <button onClick="multNumbers()" id="multiplication"> x </button>
-            <button onClick="divNumbers()" id="division"> / </button>
+            <button onClick="addNumbers(event)" id="addition" > + </button>
+            <button onClick="subNumbers(event)" id="subtraction"> - </button>
+            <button onClick="multNumbers(event)" id="multiplication"> x </button>
+            <button onClick="divNumbers(event)" id="division"> / </button>
             <br>
-            <input type="'number" id="second-number" placeholder="second number" />
+            <input type="'number" id="second-number" placeholder="second number" required/>
        </p>
+    </div>
+    <div id="resultDiv">
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="scripts/client.js"></script>
