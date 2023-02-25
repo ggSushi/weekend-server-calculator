@@ -13,12 +13,17 @@ app.listen(port, () => {
 //Global Variables
 
 let resultHistory = [];
+let resultsDisplay = [];
 
 //! It seems like the app.get is only here to send back the array info.
 //! This seems to be done AFTER the initial push of the numbers 
 //! object into the resultHistory array.
 app.get('/numbers', (req, res) => {
     res.send(resultHistory)
+})
+
+app.get('/result_history', (req, res) => {
+    res.send(resultsDisplay);
 })
 
 
@@ -42,6 +47,7 @@ app.post( '/numbers', (req, res) => {
     console.log(result);
     let calculation = `${numbersObject.first} ${numbersObject.operator} ${numbersObject.second} = ${result}`;
     resultHistory.push(calculation);
+    resultsDisplay.push(result);
     console.log(calculation);
     res.sendStatus(201);
 })

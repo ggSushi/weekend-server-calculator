@@ -24,6 +24,7 @@ function equals(event) {
     axios.post('/numbers', numbers).then((response) => {
         console.log(response);
         getResult();
+        getResultDisplay();
     }).catch((error) => {
         console.log(error);
         alert('Something went wrong, yo.');
@@ -35,13 +36,24 @@ function getResult() {
     axios.get( '/numbers' ).then((response) => {
         console.log('running in getResult()');
         let resultServer = response.data;
-        let outputDiv = document.querySelector('#resultDiv');
+        let outputDiv = document.querySelector('#resultHistoryDiv');
         outputDiv.innerHTML = '';
         for (let calculation of resultServer) {
             outputDiv.innerHTML += `
             <h2>${calculation}</h2>
             `;
         }
+    })
+}
+
+function getResultDisplay() {
+    axios.get( '/result_history' ).then((response) => {
+        console.log('Running in getResultDisplay()');
+        let resultDisplayFromServer = response.data;
+        let outputDiv = document.querySelector('#resultDiv');
+        outputDiv.innerHTML = `
+        <h2>${resultDisplayFromServer[resultDisplayFromServer.length-1]}</h2>`;
+
     })
 }
 
