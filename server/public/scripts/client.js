@@ -42,5 +42,13 @@ function getResult() {
     })
 }
 
+function resetFields() {
+    
+    let firstNumber = document.querySelector('#first-number');
+    let secondNumber = document.querySelector('#second-number');
+    firstNumber.value = '';
+    secondNumber.value = '';
+    console.log('sanity check')
 
+}
 
