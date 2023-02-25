@@ -24,10 +24,13 @@ function equals(event) {
     axios.post('/numbers', numbers).then((response) => {
         console.log(response);
         getResult();
+    }).catch((error) => {
+        console.log(error);
+        alert('Something went wrong, yo.');
     })
 }
 
-//Function for getResult()
+//Function for getResult() GET request
 function getResult() {
     axios.get( '/numbers' ).then((response) => {
         console.log('running in getResult()');
@@ -42,13 +45,11 @@ function getResult() {
     })
 }
 
-function resetFields() {
-    
+// Function to clear input fields
+function resetFields() { 
     let firstNumber = document.querySelector('#first-number');
     let secondNumber = document.querySelector('#second-number');
     firstNumber.value = '';
     secondNumber.value = '';
-    console.log('sanity check')
-
 }
 
