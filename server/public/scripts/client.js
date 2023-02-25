@@ -42,25 +42,5 @@ function getResult() {
     })
 }
 
-//!Disabling temporarily
 
-// function subNumber(event) {
-//     let firstNumber = document.querySelector('#first-number').value;
-//     let secondNumber = document.querySelector('#second-number').value;
-//     console.log(firstNumber, secondNumber);
-// }
-
-// function multNumber(event) {
-//     let firstNumber = document.querySelector('#first-number').value;
-//     let secondNumber = document.querySelector('#second-number').value;
-//     console.log(firstNumber, secondNumber);
-// }
-
-// function divNumber(event) {
-//     let firstNumber = document.querySelector('#first-number').value;
-//     let secondNumber = document.querySelector('#second-number').value;
-//     console.log(firstNumber, secondNumber);
-//     let result = firstNumber / secondNumber;
-//     return result;
-// }
 
