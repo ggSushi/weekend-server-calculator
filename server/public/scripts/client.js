@@ -1,42 +1,30 @@
 console.log('Wassup, world?!');
-
-
-
 // Functions for operations
-function addNumbers(event) {
+let buttonVal;
+
+function useOperator(event){
+    //the value was manually added to each operation button on press
+    buttonVal = event.target.value;
+    console.log(buttonVal);
+}
+
+function equals(event) {
     let firstNumber = document.querySelector('#first-number').value;
     let secondNumber = document.querySelector('#second-number').value;
+    let operation = buttonVal
     console.log(firstNumber, secondNumber);
 
     let numbers = {
         first: firstNumber,
-        second: secondNumber
+        second: secondNumber,
+        operator: buttonVal
     };
+    console.log(numbers);
 
     axios.post('/numbers', numbers).then((response) => {
         console.log(response);
         getResult();
     })
-}
-
-function subNumber(event) {
-    let firstNumber = document.querySelector('#first-number').value;
-    let secondNumber = document.querySelector('#second-number').value;
-    console.log(firstNumber, secondNumber);
-}
-
-function multNumber(event) {
-    let firstNumber = document.querySelector('#first-number').value;
-    let secondNumber = document.querySelector('#second-number').value;
-    console.log(firstNumber, secondNumber);
-}
-
-function divNumber(event) {
-    let firstNumber = document.querySelector('#first-number').value;
-    let secondNumber = document.querySelector('#second-number').value;
-    console.log(firstNumber, secondNumber);
-    let result = firstNumber / secondNumber;
-    return result;
 }
 
 //Function for getResult()
@@ -50,3 +38,26 @@ function getResult() {
     `;
     })
 }
+
+//!Disabling temporarily
+
+// function subNumber(event) {
+//     let firstNumber = document.querySelector('#first-number').value;
+//     let secondNumber = document.querySelector('#second-number').value;
+//     console.log(firstNumber, secondNumber);
+// }
+
+// function multNumber(event) {
+//     let firstNumber = document.querySelector('#first-number').value;
+//     let secondNumber = document.querySelector('#second-number').value;
+//     console.log(firstNumber, secondNumber);
+// }
+
+// function divNumber(event) {
+//     let firstNumber = document.querySelector('#first-number').value;
+//     let secondNumber = document.querySelector('#second-number').value;
+//     console.log(firstNumber, secondNumber);
+//     let result = firstNumber / secondNumber;
+//     return result;
+// }
+

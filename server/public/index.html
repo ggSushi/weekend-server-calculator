@@ -15,12 +15,14 @@
        <p>
             <input type="number" id="first-number" placeholder="first number" required/>
             <br>
-            <button onClick="addNumbers(event)" id="addition" > + </button>
-            <button onClick="subNumbers(event)" id="subtraction"> - </button>
-            <button onClick="multNumbers(event)" id="multiplication"> x </button>
-            <button onClick="divNumbers(event)" id="division"> / </button>
+            <button onClick="useOperator(event)" id="addition" value="+"> + </button>
+            <button onClick="useOperator(event)" id="subtraction" value="-"> - </button>
+            <button onClick="useOperator(event)" id="multiplication" value="*"> x </button>
+            <button onClick="useOperator(event)" id="division" value="/"> / </button>
             <br>
             <input type="'number" id="second-number" placeholder="second number" required/>
+            <br>
+            <button onClick="equals(event)" id="equals-button"> = </button>
        </p>
     </div>
     <div id="resultDiv">

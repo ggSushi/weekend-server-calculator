@@ -24,10 +24,18 @@ app.get('/numbers', (req, res) => {
 
 //TODO I need to figure out how to get the operation going 
 //TODO AND figure out how to display the operation.
-app.post( '/number', (req, res) => {
-    console.log('POST request made ofr /numbers');
+app.post( '/numbers', (req, res) => {
+    console.log('POST request made for /numbers');
     console.log(req.body);
     let numbersObject = req.body;
-    resultHistory.push(numbersObject);
+    let result;
+    if (numbersObject.operator === '+') {
+        result = Number(numbersObject.first) + Number(numbersObject.second);
+    }
+    console.log(result);
+    let calculation = `${numbersObject.first} ${numbersObject.operator} ${numbersObject.second}`;
+    resultHistory.push(calculation);
+    console.log(calculation);
     res.sendStatus(201);
 })
+
