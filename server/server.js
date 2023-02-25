@@ -34,6 +34,11 @@ app.post( '/numbers', (req, res) => {
     console.log(req.body);
     let numbersObject = req.body;
     let result;
+    if (numbersObject.first === '' || numbersObject.second === ''){
+        alert('Please fill out all fields!');
+        res.sendStatus('Error: Empty Fields');
+    }
+
     if (numbersObject.operator === '+') {
         result = Number(numbersObject.first) + Number(numbersObject.second);
     } else if (numbersObject.operator === '-') {
