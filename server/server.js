@@ -31,9 +31,16 @@ app.post( '/numbers', (req, res) => {
     let result;
     if (numbersObject.operator === '+') {
         result = Number(numbersObject.first) + Number(numbersObject.second);
+    } else if (numbersObject.operator === '-') {
+        result = Number(numbersObject.first) - Number(numbersObject.second);
+    } else if (numbersObject.operator === '*') {
+        result = Number(numbersObject.first) * Number(numbersObject.second);
+    } else if (numbersObject.operator === '/') {
+        result = Number(numbersObject.first) / Number(numbersObject.second);
     }
+
     console.log(result);
-    let calculation = `${numbersObject.first} ${numbersObject.operator} ${numbersObject.second}`;
+    let calculation = `${numbersObject.first} ${numbersObject.operator} ${numbersObject.second} = ${result}`;
     resultHistory.push(calculation);
     console.log(calculation);
     res.sendStatus(201);

@@ -31,11 +31,14 @@ function equals(event) {
 function getResult() {
     axios.get( '/numbers' ).then((response) => {
         console.log('running in getResult()');
-    let resultServer = response.data;
-    let outputDiv = document.querySelector('#resultDiv');
-    outputDiv.innerHTML += `
-    <h2>${resultServer}</h2>
-    `;
+        let resultServer = response.data;
+        let outputDiv = document.querySelector('#resultDiv');
+        outputDiv.innerHTML = '';
+        for (let calculation of resultServer) {
+            outputDiv.innerHTML += `
+            <h2>${calculation}</h2>
+            `;
+        }
     })
 }
 
