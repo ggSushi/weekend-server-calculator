@@ -20,7 +20,7 @@ function equals(event) {
         operator: buttonVal
     };
     console.log(numbers);
-
+    //! POST Request
     axios.post('/numbers', numbers).then((response) => {
         console.log(response);
         getResult();
@@ -31,8 +31,9 @@ function equals(event) {
     })
 }
 
-//Function for getResult() GET request
+// Function for getResult() GET request
 function getResult() {
+    //! GET Request
     axios.get( '/numbers' ).then((response) => {
         console.log('running in getResult()');
         let resultServer = response.data;
@@ -47,6 +48,7 @@ function getResult() {
 }
 
 function getResultDisplay() {
+    //! GET Request
     axios.get( '/result_history' ).then((response) => {
         console.log('Running in getResultDisplay()');
         let resultDisplayFromServer = response.data;

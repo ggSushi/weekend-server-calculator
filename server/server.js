@@ -18,10 +18,12 @@ let resultsDisplay = [];
 //! It seems like the app.get is only here to send back the array info.
 //! This seems to be done AFTER the initial push of the numbers 
 //! object into the resultHistory array.
+
+//! GET Request
 app.get('/numbers', (req, res) => {
     res.send(resultHistory)
 })
-
+//! GET Request
 app.get('/result_history', (req, res) => {
     res.send(resultsDisplay);
 })
@@ -29,6 +31,7 @@ app.get('/result_history', (req, res) => {
 
 //TODO I need to figure out how to get the operation going 
 //TODO AND figure out how to display the operation.
+//! POST Request
 app.post( '/numbers', (req, res) => {
     console.log('POST request made for /numbers');
     console.log(req.body);
@@ -56,4 +59,20 @@ app.post( '/numbers', (req, res) => {
     console.log(calculation);
     res.sendStatus(201);
 })
+
+//! DELETE Request
+app.delete('/numbers/:id', (req, res) => {
+    console.log(req.params); // Similar to req.body
+    //! .filter DOES NOT change the original array. It keeps the original intact.
+    resultHistory = resultHistory.filter((calculation, index) => index !== req.params.id);
+    resultsDisplay = resultsDisplay.filter((number, index) => index !== req.params.id);
+    console.log('Result history:', resultHistory);
+    console.log('Result display:', resultsDisplay);
+    res.sendStatus(200);
+
+})
+
+
+
+
 
