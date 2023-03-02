@@ -11,19 +11,16 @@ let resultsDisplay = [];
 //! object into the resultHistory array.
 
 //! GET Request
-router.get('/numbers', (req, res) => {
+router.get('/', (req, res) => {
     res.send(resultHistory)
 })
-//! GET Request
-router.get('/result_history', (req, res) => {
-    res.send(resultsDisplay);
-})
+
 
 
 //TODO I need to figure out how to get the operation going 
 //TODO AND figure out how to display the operation.
 //! POST Request
-router.post( '/numbers', (req, res) => {
+router.post( '/', (req, res) => {
     console.log('POST request made for /numbers');
     console.log(req.body);
     let numbersObject = req.body;
@@ -52,7 +49,7 @@ router.post( '/numbers', (req, res) => {
 })
 
 //! DELETE Request
-router.delete('/numbers/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log(req.params); // Similar to req.body
     //! .filter DOES NOT change the original array. It keeps the original intact.
     resultHistory = resultHistory.filter((calculation, index) => index !== req.params.id);
@@ -62,6 +59,9 @@ router.delete('/numbers/:id', (req, res) => {
     res.sendStatus(200);
 
 })
+
+//* exporting global variables to display.router.js
+// export {resultsDisplay};
 
 
 //! DON'T FORGET THIS

@@ -17,7 +17,7 @@ function equals(event) {
     let numbers = {
         first: firstNumber,
         second: secondNumber,
-        operator: buttonVal
+        operator: operation
     };
     console.log(numbers);
     //! POST Request
