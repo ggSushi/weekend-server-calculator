@@ -4,12 +4,6 @@ const port = process.env.PORT || 5001;
 //!This app.use will allow req.body to be used. IMPORTANT
 app.use(express.json());
 
-app.use(express.static('server/public'));
-
-app.listen(port, () => {
-    console.log(`listening on port: ${port}`);
-});
-
 //Global Variables
 
 let resultHistory = [];
@@ -74,5 +68,9 @@ app.delete('/numbers/:id', (req, res) => {
 
 
 
+app.use(express.static('server/public'));
 
+app.listen(port, () => {
+    console.log(`listening on port: ${port}`);
+});
 
