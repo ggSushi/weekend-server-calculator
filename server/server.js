@@ -7,7 +7,6 @@ app.use(express.json());
 //Global Variables
 
 let resultHistory = [];
-let resultsDisplay = [];
 
 //! It seems like the app.get is only here to send back the array info.
 //! This seems to be done AFTER the initial push of the numbers 
@@ -59,9 +58,7 @@ app.delete('/numbers/:id', (req, res) => {
     console.log(req.params); // Similar to req.body
     //! .filter DOES NOT change the original array. It keeps the original intact.
     resultHistory = resultHistory.filter((calculation, index) => index !== req.params.id);
-    resultsDisplay = resultsDisplay.filter((number, index) => index !== req.params.id);
     console.log('Result history:', resultHistory);
-    console.log('Result display:', resultsDisplay);
     res.sendStatus(200);
 
 })

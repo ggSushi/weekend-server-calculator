@@ -20,6 +20,7 @@ function equals(event) {
         operator: buttonVal
     };
     console.log(numbers);
+
     //! POST Request
     axios.post('/numbers', numbers).then((response) => {
         console.log(response);
