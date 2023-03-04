@@ -24,7 +24,6 @@ function equals(event) {
     axios.post('/numbers', numbers).then((response) => {
         console.log(response);
         getResult();
-        getResultDisplay();
     }).catch((error) => {
         console.log(error);
         alert('Something went wrong, yo.');
@@ -38,26 +37,17 @@ function getResult() {
         console.log('running in getResult()');
         let resultServer = response.data;
         let outputDiv = document.querySelector('#resultHistoryDiv');
+        let resultDiv = document.querySelector('#resultDiv');
         outputDiv.innerHTML = '';
         for (let calculation of resultServer) {
             outputDiv.innerHTML += `
-            <h2>${calculation}</h2>
+            <h2>${calculation.formula}</h2>
             `;
+            resultDiv.innerHTML = `<h2>${calculation.result}<h2>`
         }
     })
 }
 
-function getResultDisplay() {
-    //! GET Request
-    axios.get( '/result_history' ).then((response) => {
-        console.log('Running in getResultDisplay()');
-        let resultDisplayFromServer = response.data;
-        let outputDiv = document.querySelector('#resultDiv');
-        outputDiv.innerHTML = `
-        <h2>${resultDisplayFromServer[resultDisplayFromServer.length-1]}</h2>`;
-
-    })
-}
 
 // Function to clear input fields
 function resetFields() { 

@@ -17,10 +17,7 @@ let resultsDisplay = [];
 app.get('/numbers', (req, res) => {
     res.send(resultHistory)
 })
-//! GET Request
-app.get('/result_history', (req, res) => {
-    res.send(resultsDisplay);
-})
+
 
 
 //TODO I need to figure out how to get the operation going 
@@ -38,6 +35,7 @@ app.post( '/numbers', (req, res) => {
 
     if (numbersObject.operator === '+') {
         result = Number(numbersObject.first) + Number(numbersObject.second);
+        
     } else if (numbersObject.operator === '-') {
         result = Number(numbersObject.first) - Number(numbersObject.second);
     } else if (numbersObject.operator === '*') {
@@ -47,9 +45,11 @@ app.post( '/numbers', (req, res) => {
     }
 
     console.log(result);
-    let calculation = `${numbersObject.first} ${numbersObject.operator} ${numbersObject.second} = ${result}`;
+    let calculation = {
+        formula: `${numbersObject.first} ${numbersObject.operator} ${numbersObject.second} = ${result}`,
+        result: result,
+    };
     resultHistory.push(calculation);
-    resultsDisplay.push(result);
     console.log(calculation);
     res.sendStatus(201);
 })
