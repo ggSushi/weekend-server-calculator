@@ -46,6 +46,9 @@ function getResult() {
             `;
             resultDiv.innerHTML = `<h2>${calculation.result}<h2>`
         }
+    }).catch((error) => {
+        console.log(error);
+        alert('Something went wrong, yo.');
     })
 }
 
